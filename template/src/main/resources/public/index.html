@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <h1>Ping</h1>
+    <h2 id="pong"></h2>
+    <script>
+      async function pingServer() {
+        const response = await fetch("/ping");
+        const msg = await response.text();
+
+        const result = document.getElementById("pong");
+        result.innerHTML = msg;
+      }
+      pingServer();
+    </script>
+  </body>
 </html>
